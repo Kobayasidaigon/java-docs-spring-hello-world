@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'ssvtest'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E3B8341D2B28413C94B729C9996A3022 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E73819653EE240B5819D3AD247759624 }}
           package: '*.jar'

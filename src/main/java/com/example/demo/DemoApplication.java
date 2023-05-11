@@ -15,6 +15,9 @@ public class DemoApplication {
 
 	@RequestMapping("/")
 	String sayHello() {
+		
+		int a = 0;
+		int b = 5 / a;
 		return "Hello World!";
 	}
 }

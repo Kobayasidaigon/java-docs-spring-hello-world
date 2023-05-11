@@ -15,9 +15,18 @@ public class DemoApplication {
 
 	@RequestMapping("/")
 	String sayHello() {
-		
-		int a = 0;
-		int b = 5 / a;
+        try{
+            int num = 10;
+             
+            if( num > 5 ){
+                throw new Exception(); 
+                //newを利用して例外クラスをインスタンス化する
+            }
+             
+        }catch(Exception e){
+            //
+            System.out.println("例外が発生しました。");
+        }
 		return "Hello World!";
 	}
 }

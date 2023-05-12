@@ -41,5 +41,5 @@ public class DemoApplication {
         e.printStackTrace();
     }
 	}
-		return serviceName;
+		return "hello";
 }

@@ -27,8 +27,18 @@ public class DemoApplication {
 	String sayHello() {
 		 String serviceName = System.getenv("ConnectDB");
 		
-		log.info("Connecting to the database");
+		
+    try
+    {
+        // call methods that might throw SQLException
         	Connection connection = DriverManager.getConnection(serviceName);
+    }
+    catch (SQLException e)
+    {
+        // do something appropriate with the exception, *at least*:
+        e.printStackTrace();
+    }
+		log.info("Connecting to the database");
         	log.info("Database connection test: " + connection.getCatalog());
 		return "Hello World!";
 	}

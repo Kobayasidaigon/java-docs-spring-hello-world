@@ -11,13 +11,13 @@ import java.util.logging.Logger;
 @SpringBootApplication
 @RestController
 public class DemoApplication {
-	
-    private static final Logger log;
 
-    static {
-        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
-        log =Logger.getLogger(DemoApplication.class.getName());
-    }
+	private static final Logger log;
+
+	static {
+		System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+		log = Logger.getLogger(DemoApplication.class.getName());
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -25,21 +25,12 @@ public class DemoApplication {
 
 	@RequestMapping("/")
 	String sayHello() {
-		 String serviceName = System.getenv("ConnectDB");
-		
-		
-    try
-    {
-        // call methods that might throw SQLException
-        	Connection connection = DriverManager.getConnection(serviceName);
-		log.info("Connecting to the database");
-        	log.info("Database connection test: " + connection.getCatalog());
-    }
-    catch (SQLException e)
-    {
-        // do something appropriate with the exception, *at least*:
-        e.printStackTrace();
-    }
+		String serviceName = System.getenv("ConnectDB");
+
+			// call methods that might throw SQLException
+			Connection connection = DriverManager.getConnection(serviceName);
+			log.info("Connecting to the database");
+			log.info("Database connection test: " + connection.getCatalog());
 		return "hello";
 	}
 }

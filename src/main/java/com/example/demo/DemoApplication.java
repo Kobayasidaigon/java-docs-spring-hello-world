@@ -28,6 +28,8 @@ public class DemoApplication {
 		String serviceName = System.getenv("ConnectDB");
 		log.info(serviceName);
 		try {
+			 
+    			Class.forName("org.postgresql.Driver");
 			// call methods that might throw SQLException
 			Connection connection = DriverManager.getConnection(serviceName);
 			log.info("Connecting to the database");

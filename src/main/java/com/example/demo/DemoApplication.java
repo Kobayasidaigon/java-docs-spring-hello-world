@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.sql.*;
 
 @SpringBootApplication
 @RestController
@@ -15,18 +16,11 @@ public class DemoApplication {
 
 	@RequestMapping("/")
 	String sayHello() {
-        try{
-            int num = 10;
-             
-            if( num > 5 ){
-                throw new Exception(); 
-                //newを利用して例外クラスをインスタンス化する
-            }
-             
-        }catch(Exception e){
-            //
-            System.out.println("例外が発生しました。");
-        }
+		 String serviceName = System.getenv("ConnectDB");
+		
+		log.info("Connecting to the database");
+        	Connection connection = DriverManager.getConnection(serviceName);
+        	log.info("Database connection test: " + connection.getCatalog());
 		return "Hello World!";
 	}
 }

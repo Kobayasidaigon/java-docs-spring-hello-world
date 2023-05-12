@@ -40,6 +40,6 @@ public class DemoApplication {
         // do something appropriate with the exception, *at least*:
         e.printStackTrace();
     }
-	}
 		return "hello";
+	}
 }

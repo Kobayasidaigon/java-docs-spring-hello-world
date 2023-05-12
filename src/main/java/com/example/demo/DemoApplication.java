@@ -26,7 +26,7 @@ public class DemoApplication {
 	@RequestMapping("/")
 	String sayHello() {
 		String serviceName = System.getenv("ConnectDB");
-
+		log.info(serviceName);
 		try {
 			// call methods that might throw SQLException
 			Connection connection = DriverManager.getConnection(serviceName);

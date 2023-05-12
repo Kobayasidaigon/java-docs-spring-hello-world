@@ -34,7 +34,6 @@ public class DemoApplication {
         	Connection connection = DriverManager.getConnection(serviceName);
 		log.info("Connecting to the database");
         	log.info("Database connection test: " + connection.getCatalog());
-		return serviceName;
     }
     catch (SQLException e)
     {
@@ -42,4 +41,5 @@ public class DemoApplication {
         e.printStackTrace();
     }
 	}
+		return serviceName;
 }

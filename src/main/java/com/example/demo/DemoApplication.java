@@ -25,7 +25,7 @@ public class DemoApplication {
 
 	@RequestMapping("/")
 	String sayHello() {
-		String serviceName = System.getenv("ConnectDB");
+		String serviceName = System.getenv("SPRING_DATASOURCE_URL");
 		log.info(serviceName);
 		try {
 			// call methods that might throw SQLException

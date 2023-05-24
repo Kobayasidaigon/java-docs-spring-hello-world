@@ -27,10 +27,15 @@ public class DemoApplication {
 	String sayHello() {
 		String serviceName = System.getenv("SPRING_DATASOURCE_URL");
 		log.info(serviceName);
+
+		try {
 			// call methods that might throw SQLException
 			Connection connection = DriverManager.getConnection(serviceName);
 			log.info("Connecting to the database");
 			log.info("Database connection test: " + connection.getCatalog());
-		return "hello";
+		} catch (SQLException e) {
+			// do something appropriate with the exception, *at least*:
+			e.printStackTrace();
+		}
 	}
 }

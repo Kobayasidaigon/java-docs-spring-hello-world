@@ -26,16 +26,17 @@ public class DemoApplication {
 	@RequestMapping("/")
 	String sayHello() {
 		String serviceName = System.getenv("SPRING_DATASOURCE_URL");
-		log.info(serviceName);
+		System.out.println(serviceName);
 
+
+		try {
+			// call methods that might throw SQLException
 			Connection connection = DriverManager.getConnection(serviceName);
-// 		try {
-// 			// call methods that might throw SQLException
-// 			Connection connection = DriverManager.getConnection(serviceName);
-// 		} catch (SQLException e) {
-// 			// do something appropriate with the exception, *at least*:
-// 			e.printStackTrace();
-// 		}
+			System.out.println(connection);
+		} catch (SQLException e) {
+			// do something appropriate with the exception, *at least*:
+			e.printStackTrace();
+		}
 		return "hello";
 	}
 }
